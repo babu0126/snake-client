@@ -6,10 +6,13 @@ const connect = function () {
     port: 50541 // Port number
   });
   conn.setEncoding("utf8");
+  conn.on('connect', (connect) => {
+    console.log(`Connection established!`);
+    conn.write(`Name: Dav`);
+  });
   conn.on(DATA, (data) => {
     console.log('Incoming Data ...', data);
   });
-
 return conn;
 
 };
