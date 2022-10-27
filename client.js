@@ -9,6 +9,10 @@ const connect = function () {
   conn.on('connect', (connect) => {
     console.log(`Connection established!`);
     conn.write(`Name: Dav`);
+    setInterval(()=>{
+      conn.write('Move: up');
+      conn.write('Move: right');
+    },1000);
   });
   conn.on(DATA, (data) => {
     console.log('Incoming Data ...', data);
